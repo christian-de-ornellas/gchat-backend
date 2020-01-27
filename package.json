@@ -1,0 +1,32 @@
+{
+    "name": "g-chat",
+    "version": "1.0.0",
+    "description": "the aplication of conversation",
+    "repository": "gchat.io",
+    "author": "Christian Possidonio",
+    "license": "MIT",
+    "scripts": {
+        "start": "node src/server.js",
+        "dev": "nodemon src/server.js",
+        "test": "jest --watchAll"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.8.10"
+    },
+    "devDependencies": {
+        "eslint": "^6.8.0",
+        "eslint-config-airbnb": "18.0.1",
+        "eslint-config-node": "^4.0.0",
+        "eslint-config-prettier": "^6.9.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-node": "^11.0.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "jest": "^25.1.0",
+        "nodemon": "^2.0.2",
+        "prettier": "^1.19.1",
+        "supertest": "^4.0.2"
+    }
+}
