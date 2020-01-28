@@ -10,7 +10,7 @@ beforeAll(async () => {
 afterAll(() => {
     //o server close irá encerrar nossa aplicação, evitando problemas da porta já estar em uso
     server.close();
-    console.log("servidor fechado");
+    console.log("Servidor fechado");
 });
 
 describe("Interação do usuário nos endpoints.", () => {
@@ -26,5 +26,9 @@ describe("Interação do usuário nos endpoints.", () => {
                 nickname: "test_tdd"
             });
         expect(response.status).toEqual(201);
+    });
+    it("Removendo usuário", async () => {
+        const response = await request(server).delete("/user/remove/test_tdd");
+        expect(response.status).toEqual(200);
     });
 });
