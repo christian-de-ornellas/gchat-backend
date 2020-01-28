@@ -1,5 +1,6 @@
 const request = require("supertest");
 const server = require("../src/server");
+
 //o que será executado antes de todos os testes
 beforeAll(async () => {
     console.log("Iniciando TDD com jest!");
@@ -14,17 +15,16 @@ afterAll(() => {
 
 describe("Interação do usuário nos endpoints.", () => {
     it("Recebendo uma lista de usuários", async () => {
-        const response = await request(server).get("/list");
+        const response = await request(server).get("/user/list");
         expect(response.status).toEqual(200);
     });
     it("Cadastrando um usuário.", async () => {
-        const response = await request(server).post({
-            name: "Christian Possidonio",
-            nickname: "christian_possidonio"
-        });
+        const response = await request(server)
+            .post("/user/create")
+            .send({
+                name: "TDD",
+                nickname: "test_tdd"
+            });
         expect(response.status).toEqual(201);
-    });
-    it("Verifico se o usuário já é cadastrado na base de dados.", async () => {
-        expect(verifiedUser()).toMatch("O usuário já é cadastrado");
     });
 });
