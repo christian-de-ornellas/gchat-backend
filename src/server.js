@@ -13,8 +13,8 @@ app.use(bodyParser.json());
 //Responsável por entender os parametros via url.
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get("/", async (req, res) => {
-    res.send({ status: "ok" });
-});
+const server = app.listen(3000, () =>
+    console.log("App Listening on port 3000...")
+);
 
-app.listen(3000, () => console.log("App Listening on port 3000..."));
+module.exports = server;
