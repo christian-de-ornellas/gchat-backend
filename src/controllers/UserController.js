@@ -34,4 +34,14 @@ router.post("/create", async (req, res) => {
     }
 });
 
+router.delete("/remove/:nickname", async (req, res) => {
+    try {
+        await userModel.findOneAndDelete(req.params.nickname);
+        return res.status(200).send({ message: "Usuário removido!" });
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({ error: "Erro ao remover o usuário!" });
+    }
+});
+
 module.exports = app => app.use("/user", router);
