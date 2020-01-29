@@ -20,19 +20,19 @@ describe("Mensagens", () => {
     });
 
     it("Enviando mensagens. ", async () => {
-        const response = await (
-            await request(server).post("/message/create")
-        ).send({
-            nickname: "test_tdd",
-            message: "Oi tudo bem com você?"
-        });
+        const response = await request(server)
+            .post("/message/create")
+            .send({
+                nickname: "test_tdd",
+                message: "Oi tudo bem com você?"
+            });
         expect(response.status).toEqual(201);
     });
-    it("Caso o usuário passe uma mensagem inexistente.", async () => {
+    it("Caso o usuário tente remover uma mensagem inexistente.", async () => {
         const response = await request(server).get(
             "/message/remove/1/test_tdd"
         );
 
-        expect(response.status).toEqual(400);
+        expect(response.status).toEqual(404);
     });
 });

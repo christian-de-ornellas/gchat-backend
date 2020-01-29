@@ -13,8 +13,11 @@ app.use(bodyParser.json());
 //Responsável por entender os parametros via url.
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//Rota de usuário
+//Rota de usuários
 require("./controllers/UserController")(app);
+
+//Rota de mensagens
+require("./controllers/MessageController")(app);
 
 const server = app.listen(3000, () =>
     console.log("App Listening on port 3000...")
