@@ -11,7 +11,8 @@ const mongoose = require("mongoose");
 // Dados de conexão do MongoDB
 mongoose.connect("mongodb://localhost/gchat", {
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useCreateIndex: true
 });
 
 // O mongoose vai retornar um Promise(Promessa)
