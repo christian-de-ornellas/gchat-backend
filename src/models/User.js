@@ -9,7 +9,9 @@ const UserSchema = new mongoose.Schema(
 
         nickname: {
             type: String,
-            required: true
+            required: true,
+            unique: true,
+            lowercase: true
         }
     },
     { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
