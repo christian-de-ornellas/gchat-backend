@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/list", async (req, res) => {
     try {
-        const messages = await messageModel.find();
+        const messages = await messageModel.find().populate("user");
         return res.status(200).send({ messages });
     } catch (error) {
         console.log(error);
@@ -16,14 +16,11 @@ router.get("/list", async (req, res) => {
 
 router.post("/create", async (req, res) => {
     try {
-        const message = await messageModel.create({
-            ...req.body,
-            nickname: req.nickname
-        });
+        message = await messageModel.create({ ...req.body });
         return res.status(201).send({ message });
     } catch (error) {
         console.log(error);
-        return res.status(400).send({ error: "Nenhuma informação encontrada" });
+        return res.status(400).send({ error: "Erro ao enviar a mensagem!" });
     }
 });
 
