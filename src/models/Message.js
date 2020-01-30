@@ -2,10 +2,10 @@ const mongoose = require("../database");
 
 const MessageSchema = new mongoose.Schema(
     {
-        nickname: {
-            type: String,
-            ref: "User",
-            required: true
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            require: true
         },
         message: {
             type: String,
