@@ -25,11 +25,11 @@ router.post("/create", async (req, res) => {
     }
 });
 
-router.delete("/remove/:messageId/nickname", async (req, res) => {
+router.delete("/remove/:messageId/:user", async (req, res) => {
     try {
-        const message = await messageModel.findOne({ _id: messageId });
-        if (message.nickname == req.params.nickname) {
-            await messageModel.findOneAndDelete(req.params.nickname);
+        const message = await messageModel.findOne({ _id: req.params.messageId });
+        if (message.user == req.params.user) {
+            await messageModel.findOneAndDelete(req.params.user);
             return res.status(200).send();
         } else {
             return res
