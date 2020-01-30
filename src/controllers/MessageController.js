@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/list", async (req, res) => {
     try {
-        const messages = await messageModel.find().populate("user");
+        const messages = await messageModel.find().populate('user')
         return res.status(200).send({ messages });
     } catch (error) {
         console.log(error);
@@ -16,7 +16,8 @@ router.get("/list", async (req, res) => {
 
 router.post("/create", async (req, res) => {
     try {
-        message = await messageModel.create({ ...req.body });
+        const {nickname} = req.body
+        message = await messageModel.create({ ...req.body, nickname, });
         return res.status(201).send({ message });
     } catch (error) {
         console.log(error);
