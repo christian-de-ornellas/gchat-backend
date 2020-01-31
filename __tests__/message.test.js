@@ -8,7 +8,7 @@ describe("Mensagens", () => {
 
     //o que será executado após todos os testes
     afterAll(async () => {
-        await messageModel.deleteMany({}, err =>
+        await messageModel.deleteOne({}, err =>
             console.log("Removendo collection messages!")
         );
         // Fechando o server

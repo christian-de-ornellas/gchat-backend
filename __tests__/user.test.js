@@ -8,7 +8,7 @@ describe("Interação do usuário nos endpoints.", () => {
 
     //o que será executado após todos os testes
     afterAll(async () => {
-        await userModel.deleteMany({}, err =>
+        await userModel.deleteOne({}, err =>
             console.log("Removendo collection users!")
         );
         // Fechando o server
