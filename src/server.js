@@ -20,7 +20,7 @@ require("./controllers/UserController")(app);
 require("./controllers/MessageController")(app);
 
 const server = app.listen(3000, () =>
-    console.log("App Listening on port 3000...")
+    console.warn("App Listening on port 3000...")
 );
 
 module.exports = server;
