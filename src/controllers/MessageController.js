@@ -6,7 +6,10 @@ const router = express.Router();
 
 router.get("/list", async (req, res) => {
     try {
-        const messages = await messageModel.find().populate("user");
+        const messages = await messageModel
+            .find()
+            .sort({ created_at: -1 })
+            .populate("user");
         return res.status(200).send({ messages });
     } catch (error) {
         console.log(error);
